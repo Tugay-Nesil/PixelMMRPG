@@ -1,0 +1,96 @@
+/* ===== Dikey telefon düzeni ===== */
+.sidecol{position:fixed;bottom:calc(180px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column-reverse;gap:6px;z-index:4}
+#sideL{left:calc(8px + env(safe-area-inset-left,0px))}
+#sideR{right:calc(8px + env(safe-area-inset-right,0px));bottom:calc(262px + env(safe-area-inset-bottom,0px))}
+.sidecol .slot{width:44px;height:44px;font-size:21px}
+
+body.portrait #hud{left:calc(8px + env(safe-area-inset-left,0px));top:calc(8px + env(safe-area-inset-top,0px));width:172px;padding:6px 8px}
+body.portrait #hud .row{gap:7px}
+body.portrait #portrait{width:30px;height:30px;font-size:16px}
+body.portrait #pname{font-size:12px}
+body.portrait #plvl{font-size:10px}
+body.portrait .bar{height:12px;margin-top:3px}
+body.portrait .bar>span{font-size:9px;line-height:10px}
+body.portrait #gold{font-size:11px;margin-top:3px}
+
+body.portrait #side{right:calc(8px + env(safe-area-inset-right,0px));top:calc(8px + env(safe-area-inset-top,0px));width:112px;gap:5px}
+body.portrait #mapbox{padding:5px}
+body.portrait #minimap{width:98px;height:98px}
+body.portrait #zone{font-size:10px;margin-top:3px}
+body.portrait #questbox{font-size:10px;line-height:1.35;padding:5px 7px;max-height:86px;overflow:hidden}
+
+body.portrait #target{top:calc(176px + env(safe-area-inset-top,0px));width:190px;padding:5px 8px}
+body.portrait #tname{font-size:12px}
+
+body.portrait #chat{left:calc(8px + env(safe-area-inset-left,0px));top:calc(122px + env(safe-area-inset-top,0px));bottom:auto;width:min(230px,58vw);padding:4px;background:rgba(6,4,8,.38);border-color:transparent}
+body.portrait #chatlog{height:54px;font-size:10.5px}
+body.portrait #chatin{font-size:11px;padding:3px 6px;margin-top:3px}
+
+body.portrait #bar{display:none!important}
+/* saldırı düğmesinin etrafındaki yetenekler ve altındaki iksirler */
+#actPad{position:fixed;right:env(safe-area-inset-right,0px);bottom:env(safe-area-inset-bottom,0px);width:0;height:0;z-index:6}
+#actPad .slot{position:absolute;width:52px;height:52px;font-size:24px;border-radius:50%}
+#actPad .slot .k{left:50%;top:auto;bottom:-2px;transform:translateX(-50%);font-size:9px}
+#actPad .slot .cd{border-radius:0}
+#actPad .pad_s0{right:132px;bottom:100px}
+#actPad .pad_s1{right:110px;bottom:162px}
+#actPad .pad_s2{right:53px;bottom:194px}
+#actPad .pad_ph,#actPad .pad_pm{width:44px;height:44px;font-size:20px;border-radius:10px;bottom:16px}
+#actPad .pad_ph{right:66px}
+#actPad .pad_pm{right:16px}
+body.portrait #joy{left:calc(16px + env(safe-area-inset-left,0px));bottom:calc(40px + env(safe-area-inset-bottom,0px));width:118px;height:118px}
+body.portrait #knob{width:50px;height:50px;margin:-25px 0 0 -25px}
+body.portrait #atkBtn{right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:84px;height:84px;font-size:36px}
+
+body.portrait #tut{top:calc(200px + env(safe-area-inset-top,0px));padding:8px 10px 8px 68px;font-size:12px}
+body.portrait #tut .av{width:50px;height:50px;font-size:28px}
+body.portrait #toast{font-size:22px;top:30%}
+body.portrait #toast small{font-size:13px}
+
+body.portrait .win{max-height:82vh;overflow:auto;padding:12px}
+body.portrait #inv,body.portrait #char{left:8px;right:8px;top:calc(56px + env(safe-area-inset-top,0px));width:auto;transform:none}
+body.portrait #start h1{font-size:34px}
+
+/* 16-bit piksel görünümü: büyütme sırasında yumuşatma yok */
+#game{image-rendering:auto}
+
+/* ===== GM paneli ===== */
+#gm{left:50%;top:50%;transform:translate(-50%,-50%);width:500px;max-width:calc(100vw - 16px);max-height:88vh;overflow:auto;z-index:12}
+#gmLogin{left:50%;top:40%;transform:translate(-50%,-50%);width:320px;max-width:calc(100vw - 16px);z-index:13}
+#gm h2::before,#gmLogin h2::before{content:'👑 '}
+.gmf{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.gmf label{font-size:12px;color:var(--muted)}
+#gm input[type=number],#gm input[type=text],#gm input[type=password],#gm select,.gmf input[type=password]{background:rgba(0,0,0,.5);border:1px solid #4a3f44;border-radius:3px;color:#fff;padding:6px 8px;font:inherit;font-size:13px;-webkit-user-select:text;user-select:text;min-width:0}
+#gm input[type=number]{width:84px}
+#gm input[type=text],#gm input[type=password]{flex:1}
+#gm select{flex:1;max-width:220px}
+.gmbody{display:flex;flex-direction:column;gap:8px;margin-top:10px;font-size:13px}
+.gmrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.gmrow>label{min-width:76px;color:var(--muted);font-size:12px}
+.gmrow button{padding:5px 12px;font-size:12px}
+.gmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px}
+.gmgrid button{padding:7px 8px;font-size:12px}
+.gmgrid button.on{border-color:var(--gold);box-shadow:inset 0 0 10px rgba(207,169,94,.4)}
+button.gold{background:linear-gradient(#8a6a1e,#4a360a);border-color:#e0c060}
+button.danger{background:linear-gradient(#6a1018,#300408);border-color:#e0505a}
+.gmsub{font-family:'Cinzel',Georgia,serif;color:var(--gold);font-size:13px;letter-spacing:1px;margin-top:4px}
+.gmnote{font-size:11.5px;line-height:1.5}
+.gmsw{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid #2e2630;border-radius:4px;background:rgba(0,0,0,.3);cursor:pointer}
+.gmsw input{width:18px;height:18px;accent-color:#c42a3c;flex:none}
+.gmsw span{display:flex;flex-direction:column;line-height:1.3}.gmsw small{color:var(--muted);font-size:11px}
+.gmslot{border-color:#cfa95e!important;box-shadow:0 0 10px rgba(255,216,96,.35)!important}
+@media (max-width:560px){.gmrow>label{min-width:60px}#gm select{max-width:none}}
+
+/* ===== Rogue-like: kutsama kartları + yuvarlanma düğmesi ===== */
+#boon{left:50%;top:50%;transform:translate(-50%,-50%);width:560px;max-width:calc(100vw - 16px);z-index:14;text-align:center}
+.booncards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.booncard{display:flex;flex-direction:column;align-items:center;gap:5px;padding:16px 8px;background:linear-gradient(#241f16,#15110b);border:2px solid var(--border2);border-radius:8px;cursor:pointer;transition:transform .12s,border-color .12s,box-shadow .12s;color:var(--text)}
+.booncard:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 0 18px rgba(207,169,94,.4)}
+.booncard .bic{font-size:34px;line-height:1}
+.booncard .bn{font-family:'Cinzel',Georgia,serif;font-weight:700;color:var(--gold);font-size:14px}
+.booncard .bd{font-size:12px;color:var(--text);line-height:1.35;min-height:48px}
+.booncard .bhave{font-size:10px;color:var(--muted)}
+#dodgeBtn{position:fixed;left:calc(150px + env(safe-area-inset-left,0px));bottom:calc(52px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:radial-gradient(#3a6a8a,#15303f);border:3px solid #bfe0ef;display:flex;align-items:center;justify-content:center;font-size:28px;z-index:6;touch-action:none;user-select:none;box-shadow:0 3px 0 #000}
+#dodgeBtn:active{transform:scale(.92)}
+body.portrait #dodgeBtn{left:auto;right:calc(116px + env(safe-area-inset-right,0px));bottom:calc(150px + env(safe-area-inset-bottom,0px));width:54px;height:54px;font-size:24px}
+@media (max-width:560px){.booncards{grid-template-columns:1fr;gap:7px}.booncard{flex-direction:row;text-align:left;padding:10px}.booncard .bd{min-height:0}.booncard .bic{font-size:26px}}

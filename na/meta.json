@@ -1,0 +1,94 @@
+{
+"GiantRacoon": {
+"fw": 60,
+"n": 6
+},
+"GiantBamboo": {
+"fw": 62,
+"n": 6
+},
+"DemonCyclop": {
+"fw": 50,
+"n": 5
+},
+"TenguRed": {
+"fw": 82,
+"n": 6
+},
+"GiantBlueSamurai": {
+"fw": 48,
+"n": 12
+},
+"Dragon": {
+"fw": 270,
+"fh": 236,
+"n": 1
+},
+"ground": [
+"grass",
+"forest",
+"sand",
+"plaza",
+"path",
+"rdirt",
+"camp",
+"ruin",
+"dfloor",
+"dwall",
+"water"
+],
+"props": {
+"tree": [
+32,
+32
+],
+"tree2": [
+32,
+32
+],
+"pine": [
+32,
+32
+],
+"dead": [
+32,
+32
+],
+"rock": [
+16,
+16
+],
+"bush": [
+16,
+16
+],
+"bush2": [
+16,
+16
+],
+"flower": [
+16,
+16
+],
+"flower2": [
+16,
+16
+],
+"konak": [
+64,
+96
+],
+"house2f": [
+48,
+48
+],
+"housestone": [
+48,
+48
+],
+"fence": [
+16,
+16
+]
+}
+}

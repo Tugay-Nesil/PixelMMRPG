@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Kayıp Diyarlar"><meta name="theme-color" content="#120d18"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"><link rel="icon" type="image/png" sizes="192x192" href="icon-192.png"><link rel="manifest" href="manifest.json">
+<title>Kayıp Diyarlar</title>
+<style id="kdpre">html,body{background:#120d18;margin:0}body>*:not(#kdLoad){visibility:hidden!important}
+#kdLoad{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 40%,#2a2038,#120d18 70%);font-family:'Segoe UI',sans-serif}
+#kdLoad .kdl-box{width:min(320px,80vw);text-align:center}#kdLoad .kdl-title{font-size:28px;color:#ffd65a;text-shadow:3px 3px 0 #000;margin-bottom:18px;font-weight:700}
+#kdLoad .kdl-bar{height:18px;background:#0d0912;border:3px solid #0d0912;border-radius:4px;box-shadow:0 0 0 2px #c99a3c;overflow:hidden}#kdLoad .kdl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#b07a22,#ffd65a)}
+#kdLoad .kdl-txt{margin-top:10px;font-size:13px;color:#a59cb8}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/oyun.css">
+<link rel="stylesheet" href="css/karanlik.css">
+<link rel="stylesheet" href="css/mobil.css">
+<link rel="stylesheet" href="css/ahsap.css">
+<link rel="stylesheet" href="css/hud2.css">
+<link rel="stylesheet" href="css/v26.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<canvas id="uiLayer"></canvas>
+<div id="tut" class="panel hidden"></div>
+<div id="joy" class="hidden"><div id="knob"></div></div>
+<div id="atkBtn" class="hidden">⚔️</div>
+
+<div id="hud" class="panel hidden">
+  <div class="row"><div id="portrait"></div><div style="flex:1;min-width:0"><div id="pname"></div><div id="plvl"></div></div></div>
+  <div class="bar"><i id="hpb" style="background:linear-gradient(#e85a5a,#a32525)"></i><i id="shb" style="background:rgba(190,220,255,.55)"></i><span id="hpt"></span></div>
+  <div class="bar"><i id="mpb" style="background:linear-gradient(#5a95f0,#2552a8)"></i><span id="mpt"></span></div>
+  <div class="bar" style="height:10px"><i id="xpb" style="background:linear-gradient(#b77ce6,#6b2fa0)"></i><span id="xpt" style="font-size:8px;line-height:9px"></span></div>
+  <div id="gold"><span id="goldt"></span><span id="buffs"></span></div>
+</div>
+<div id="target" class="panel hidden"><div id="tname"></div><div class="bar"><i id="thpb" style="background:linear-gradient(#e85a5a,#a32525)"></i><span id="thpt"></span></div></div>
+<div id="side" class="hidden">
+  <div id="mapbox" class="panel"><canvas id="minimap" width="160" height="160"></canvas><div id="zone"></div></div>
+  <div id="questbox" class="panel"></div>
+</div>
+<div id="chat" class="hidden"><div id="chatlog"></div><input id="chatin" maxlength="120" placeholder="Sohbet için Enter'a bas..." autocomplete="off"></div>
+<div id="bar" class="panel hidden"></div>
+<div id="toast"></div>
+
+<div id="inv" class="panel win hidden"></div>
+<div id="char" class="panel win hidden"></div>
+<div id="skills" class="panel win hidden"></div>
+<div id="smith" class="panel win hidden"></div>
+<div id="shop" class="panel win hidden"></div>
+<div id="extra" class="panel win hidden"></div>
+<div id="bigmap" class="panel win hidden"><button class="x" data-close="bigmap">✕</button><h2 id="bmTitle">Harita</h2><canvas id="bmCanvas" width="480" height="480"></canvas><div class="mut" style="font-size:12px;margin-top:6px">⭐ görev hedefi • ⛩ geçitler • 💀 bosslar • M ile kapat</div></div>
+<div id="dialog" class="panel win hidden"><h2 id="dtitle"></h2><div id="dtext"></div><div id="dbtns"></div></div>
+<div id="tip" class="panel hidden"></div>
+<div id="overlay"><div id="start"></div><div id="death" class="hidden"></div></div>
+
+<script src="js/varliklar.js"></script>
+<script src="js/yukle.js"></script>
+<script src="js/veri.js"></script>
+<script src="js/sinif.js"></script>
+<script src="js/dunya.js"></script>
+<script src="js/dunya2.js"></script>
+<script src="js/dunya3.js"></script>
+<script src="js/cizim.js"></script>
+<script src="js/savas.js"></script>
+<script src="js/arayuz.js"></script>
+<script src="js/oyun.js"></script>
+<script src="js/hazine.js"></script>
+<script src="js/ciftlik.js"></script>
+<script src="js/stil.js"></script>
+<script src="js/karanlik.js"></script>
+<script src="js/gm.js"></script>
+<script src="js/mobil.js"></script>
+<script src="js/roguelike.js"></script>
+<script src="js/netlik.js"></script>
+<script src="js/na.js"></script>
+<script src="js/efekt.js"></script>
+<script src="js/hud2.js"></script>
+<script src="js/envanter.js"></script>
+<script src="js/v26.js"></script>
+<script src="js/v32.js"></script>
+<script src="js/canavar.js"></script>
+<script src="js/toplama.js"></script>
+<script src="js/evcil.js"></script>
+<script src="js/pvp.js"></script>
+<script src="js/town.js"></script>
+<script src="js/sosyal.js"></script>
+<script src="js/alanfx.js"></script>
+<script src="js/koloni.js"></script>
+<script src="js/perf.js"></script>
+<script src="js/beceri.js"></script>
+<script src="js/ui48.js"></script>
+<script src="js/ekonomi.js"></script>
+<script src="js/inci.js"></script>
+<script src="js/pazar.js"></script>
+<script src="js/koy.js"></script>
+<script src="js/etkinlik.js"></script>
+<script src="js/gm2.js"></script>
+<script src="js/ui53.js"></script>
+<script src="js/taktik.js"></script>
+<script src="js/v55.js"></script>
+<script src="js/dekor.js"></script>
+<script src="js/v59.js"></script>
+<script src="js/v60.js"></script>
+<script src="js/v54.js"></script>
+
+<script src="js/son.js"></script>
+<script src="js/giris.js"></script>
+</body>
+</html>
